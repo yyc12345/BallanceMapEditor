@@ -337,20 +337,20 @@ Public Class frmMain
         nowMap.LayerColl.Add(New CLayer("New Layer"))
         ComboBox3.Items.Add(nowMap.LayerColl(0).Name)
         ComboBox3.SelectedIndex = 0
-        ToolStripStatusLabel1.Text = "就绪"
-        Me.Text = "Ballance Map Editor - 未命名"
+        ToolStripStatusLabel1.Text = "Ready"
+        Me.Text = "Ballance Map Editor - Noname"
     End Sub
 
     Private Sub 打开ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles 打开ToolStripMenuItem.Click
         On Error GoTo err
         Dim MapPath As String
-        OpenFileDialog1.Filter = "Ballance地图文件|*.bme"
+        OpenFileDialog1.Filter = "Ballance Map File|*.bme"
         OpenFileDialog1.RestoreDirectory = True
         OpenFileDialog1.FileName = ""
-        OpenFileDialog1.Title = "打开"
+        OpenFileDialog1.Title = "Open"
 
         Dim result As MsgBoxResult
-        result = MsgBox("文件尚未保存,是否保存?", MsgBoxStyle.YesNoCancel, "提示")
+        result = MsgBox("This file is unsaved. Do you want to save it?", MsgBoxStyle.YesNoCancel, "Notice")
         If result = MsgBoxResult.Cancel Then
             Exit Sub
         End If
@@ -365,7 +365,7 @@ Public Class frmMain
             Call 新建ToolStripMenuItem_Click(sender, e)
             ComboBox3.Items.Clear()
             nowMap.LayerColl.Clear()
-            ToolStripStatusLabel1.Text = "正在加载文件..."
+            ToolStripStatusLabel1.Text = "Loading file..."
             Application.DoEvents()
 
             ObjectOnLoad = True
@@ -377,7 +377,7 @@ Public Class frmMain
             ObjectOnLoad = False
 
             PropertyGrid2.SelectedObject = nowMap.LayerColl(0)
-            ToolStripStatusLabel3.Text = "当前层:" & nowMap.LayerColl(0).Name
+            ToolStripStatusLabel3.Text = "Current layer:" & nowMap.LayerColl(0).Name
 
 
             RefreshCombobox()
@@ -385,14 +385,14 @@ Public Class frmMain
 
             Select Case nowMap.Result
                 Case CMap.OpenResult.Successful
-                    ToolStripStatusLabel1.Text = "文件加载完成,用时:" & Math.Round(timer.Elapsed.TotalSeconds, 2) & "s."
+                    ToolStripStatusLabel1.Text = "File finish loading. Time cost:" & Math.Round(timer.Elapsed.TotalSeconds, 2) & "s."
                 Case CMap.OpenResult.Updated
-                    ToolStripStatusLabel1.Text = "文件成功升级并已保存,用时:" & Math.Round(timer.Elapsed.TotalSeconds, 2) & "s."
+                    ToolStripStatusLabel1.Text = "File has been upgraded and saved. Time cost:" & Math.Round(timer.Elapsed.TotalSeconds, 2) & "s."
                 Case CMap.OpenResult.Failed
 err:
                     ObjectOnLoad = False
                     Call 新建ToolStripMenuItem_Click(sender, e)
-                    ToolStripStatusLabel1.Text = "文件打开失败."
+                    ToolStripStatusLabel1.Text = "Fail to open file."
                     Exit Sub
             End Select
 
@@ -403,9 +403,9 @@ err:
     End Sub
 
     Private Sub 保存ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles 保存ToolStripMenuItem.Click
-        SaveFileDialog1.Filter = "Ballance地图文件|*.bme"
+        SaveFileDialog1.Filter = "Ballance Map File|*.bme"
         If OpenFileDialog1.FileName = "" Then
-            SaveFileDialog1.FileName = "未命名"
+            SaveFileDialog1.FileName = "Noname"
         Else
             SaveFileDialog1.FileName = OpenFileDialog1.FileName
         End If
@@ -413,12 +413,12 @@ err:
         If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
             nowMap.SaveFile(SaveFileDialog1.FileName)
             Me.Text = "Ballance Map Editor - " & SaveFileDialog1.FileName
-            ToolStripStatusLabel1.Text = "文件已保存."
+            ToolStripStatusLabel1.Text = "Save file successfully."
         End If
     End Sub
     Private Sub 退出ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 退出ToolStripMenuItem.Click
         Dim result As MsgBoxResult
-        result = MsgBox("文件尚未保存,是否保存?", MsgBoxStyle.YesNoCancel, "提示")
+        result = MsgBox("This file is unsaved. Do you want to save it?", MsgBoxStyle.YesNoCancel, "Notice")
         If result = MsgBoxResult.Cancel Then
             Exit Sub
         End If
@@ -430,8 +430,8 @@ err:
         End If
     End Sub
     Private Sub 另存为ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles 另存为ToolStripMenuItem.Click
-        SaveFileDialog1.Filter = "Ballance地图文件|*.bme"
-        SaveFileDialog1.FileName = "未命名"
+        SaveFileDialog1.Filter = "Ballance Map File|*.bme"
+        SaveFileDialog1.FileName = "Noname"
         SaveFileDialog1.FileName = OpenFileDialog1.FileName
         If SaveFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
             nowMap.SaveFile(SaveFileDialog1.FileName)
@@ -443,7 +443,7 @@ err:
     End Sub
 
     Private Sub 填充区块FToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles 填充区块FToolStripMenuItem.Click
-        MsgBox("暂不可用.", MsgBoxStyle.OkOnly, "提示")
+        MsgBox("Currently unavailable.", MsgBoxStyle.OkOnly, "Notice")
         'If nowBlock.Text = "" Then
         '    MsgBox("选择一个方块后在再使用此工具。")
         'Else
@@ -452,7 +452,7 @@ err:
         'End If
     End Sub
     Private Sub BMMaker的bmpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BMMaker的bmpToolStripMenuItem.Click
-        Dim test As New Importer.FromBMMaker(Application.StartupPath & "/Test.png")
+        Dim test As New Importer.FromBMMaker(Application.StartupPath & "\\Test.bmp")
         For Each s In test.BlockList
             nowMap.LayerColl(nowLayerID).BlockColl.Add(s)
         Next
@@ -490,7 +490,7 @@ err:
                                                                       Direct2D1.FeatureLevel.Level_DEFAULT)
             _RenderTarget = New Direct2D1.WindowRenderTarget(_D2DFactory, R, H)
         Catch ex As Exception
-            MsgBox("Direct2D初始化失败,程序将自动退出. 以下是错误信息:" & vbCrLf & ex.Message & vbCrLf & ex.StackTrace)
+            MsgBox("Fail to initialize Direct2D. App will quit automatically. This is error log:" & vbCrLf & ex.Message & vbCrLf & ex.StackTrace)
             End
         End Try
     End Sub
