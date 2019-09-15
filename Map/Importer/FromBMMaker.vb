@@ -40,10 +40,6 @@ Namespace Map.Importer
         End Function
         Public Sub New(ByVal ImageName As String)
             SolvePictureBox = New PictureBox
-            If Not (IO.File.Exists(ImageName)) Then
-                MsgBox("未能在程序目录下找到Test.bmp文件，请确保文件存在", MsgBoxStyle.Exclamation)
-                Return
-            End If
             SolvePictureBox.Load(ImageName)
             SolveImage()
         End Sub

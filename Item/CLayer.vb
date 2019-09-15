@@ -10,11 +10,11 @@ Namespace Item
         <Browsable(False)>
         Public Property RailColl As New List(Of Rail)
 
-        <Category("属性")> <DescriptionAttribute("层名称")>
+        <Category("Property")> <DescriptionAttribute("Layer name")>
         Public Property Name As String
-        <Category("属性")> <DescriptionAttribute("生成高度")>
+        <Category("Property")> <DescriptionAttribute("Generate height")>
         Public Property Height As Double
-        <Category("属性")> <DescriptionAttribute("可见性")>
+        <Category("Property")> <DescriptionAttribute("Visibility")>
         Public Property Visible As Boolean = True
         Public Sub New()
 

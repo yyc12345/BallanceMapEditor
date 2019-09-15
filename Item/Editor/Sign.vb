@@ -4,12 +4,12 @@ Imports SharpDX
 Namespace Item.Editor
     Public Class Sign
         Inherits Item
-        <Category("外观")> <DescriptionAttribute("标记文字")>
+        <Category("Appearances")> <DescriptionAttribute("Tag text")>
         Public Property Name As String
-        <Category("外观")> <DescriptionAttribute("标记颜色")>
+        <Category("Appearances")> <DescriptionAttribute("Tag color")>
         Public Property BrushColor As SharpDX.Color4 = SharpDX.Color.Red
-        <Category("外观")> <DescriptionAttribute("标记文字字体")>
-        Private Property Font As Font = New Font(New FontFamily("宋体"), 15, FontStyle.Bold)
+        <Category("Appearances")> <DescriptionAttribute("Tag font")>
+        Private Property Font As Font = New Font(New FontFamily("Arial"), 15, FontStyle.Bold)
         Public Sub New()
 
         End Sub

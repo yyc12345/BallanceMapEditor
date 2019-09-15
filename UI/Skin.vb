@@ -73,7 +73,7 @@ Namespace UI
                 AddTextrue(Texture.SmallSunkenTurnIn, False)
                 AddTextrue(Texture.SmallSunkenTurnOut, False)
             Catch ex As Exception
-                MsgBox("贴图加载失败,程序将自动退出. 以下是错误信息:" & vbCrLf & ex.Message & vbCrLf & ex.StackTrace)
+                MsgBox("Fail to load texture. App will automatically exit. This is error log:" & vbCrLf & ex.Message & vbCrLf & ex.StackTrace)
                 End
             End Try
         End Sub

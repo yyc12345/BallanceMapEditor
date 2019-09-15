@@ -6,14 +6,14 @@ Namespace Item.Game
         Inherits Item
         Dim typ As BlockType
         Dim rot As RotateDegree
-        <[ReadOnly](True)> <Category("外观")>
-        <BrowsableAttribute(False)> <DescriptionAttribute("方块尺寸")>
+        <[ReadOnly](True)> <Category("Appearances")>
+        <BrowsableAttribute(False)> <DescriptionAttribute("Block size")>
         Public Property Size As BlockSize
 
         Dim BitmapBrush As Direct2D1.BitmapBrush
         Dim Rec As SharpDX.RectangleF
 
-        <Category("属性")> <DescriptionAttribute("方块类型")>
+        <Category("Property")> <DescriptionAttribute("Block type")>
         Public Property Type As BlockType
             Get
                 Return typ
@@ -29,7 +29,7 @@ Namespace Item.Game
                 'Rotate = 0
             End Set
         End Property
-        <Category("外观")> <DescriptionAttribute("方块旋转角度")>
+        <Category("Appearances")> <DescriptionAttribute("Block rotate angle")>
         Public Property Rotate As RotateDegree
             Get
                 Return rot
@@ -44,13 +44,13 @@ Namespace Item.Game
         <BrowsableAttribute(False)>
         Public Property Opacity As Double = 1
 
-        <BrowsableAttribute(False)> <Category("属性")> <DescriptionAttribute("方块文本标识符")>
+        <BrowsableAttribute(False)> <Category("Property")> <DescriptionAttribute("Block text tag")>
         Public ReadOnly Property Text As String
             Get
                 Return (Type.ToString())
             End Get
         End Property
-        <Category("外观")> <DescriptionAttribute("方块宽度")>
+        <Category("Appearances")> <DescriptionAttribute("Block width")>
         Public ReadOnly Property Height As Integer
             Get
                 If Size = BlockSize.BigBlock Then
@@ -60,7 +60,7 @@ Namespace Item.Game
                 End If
             End Get
         End Property
-        <Category("外观")> <DescriptionAttribute("方块长度")>
+        <Category("Appearances")> <DescriptionAttribute("Block length")>
         Public ReadOnly Property Width As Integer
             Get
                 If Size = BlockSize.BigBlock Then

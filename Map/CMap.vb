@@ -8,11 +8,11 @@ Imports SharpDX
 Namespace Map
     Public Class CMap
         Public Property Creator As String = Environment.UserName
-        Public Property Title As String = "未命名"
+        Public Property Title As String = "Untitled"
 
         Public Property SignColl As New List(Of Sign)
         Public Property LayerColl As New List(Of CLayer)
-        'Public Property Grid As New UI.GridView(System.Drawing.Color.Black, New Size(20, 20), New Size(50, 50), True)
+        Public Property Grid As New UI.GridView(System.Drawing.Color.Black, New Size(20, 20), New Size(50, 50), True)
         Public Enum OpenResult
             Successful = 0
             Updated = 1
@@ -189,7 +189,7 @@ err:
 #Region "Draw"
         Public Sub Draw(ByVal e As Direct2D1.RenderTarget)
             e.Clear(New SharpDX.Color4(SharpDX.Color.White.ToColor4))
-            'Grid.Draw(e)
+            Grid.Draw(e)
             For i = 0 To LayerColl.Count - 1
                 If LayerColl(i).Visible Then
                     LayerColl(i).Draw(e)
@@ -261,7 +261,7 @@ err:
             sw.Flush()
             sw.Close()
             sw = Nothing
-            MsgBox("文件已经生成为" & FileName & ".ms,请使用Maker.mx加载脚本.", , "提示")
+            MsgBox("File has been generated in" & FileName & ".ms. Please use Maker.mx to load script.", , "Notice")
         End Sub
 #End Region
 

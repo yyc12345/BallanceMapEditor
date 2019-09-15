@@ -661,13 +661,13 @@
     <value>5, 200</value>
   </data>
   <data name="Button16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button16.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
   </data>
   <data name="Button16.Text" xml:space="preserve">
-    <value>凹路面转角</value>
+    <value>Sink corner</value>
   </data>
   <data name="&gt;&gt;Button16.Name" xml:space="preserve">
     <value>Button16</value>
@@ -694,13 +694,13 @@
     <value>5, 286</value>
   </data>
   <data name="Button13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button13.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
   <data name="Button13.Text" xml:space="preserve">
-    <value>单侧边框转角</value>
+    <value>Oneside border corner</value>
   </data>
   <data name="&gt;&gt;Button13.Name" xml:space="preserve">
     <value>Button13</value>
@@ -727,7 +727,7 @@
     <value>5, 258</value>
   </data>
   <data name="Button14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button14.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -760,7 +760,7 @@
     <value>5, 230</value>
   </data>
   <data name="Button15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button15.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -793,13 +793,13 @@
     <value>5, 173</value>
   </data>
   <data name="Button11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button11.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
   <data name="Button11.Text" xml:space="preserve">
-    <value>普通路面转角</value>
+    <value>Normal corner</value>
   </data>
   <data name="&gt;&gt;Button11.Name" xml:space="preserve">
     <value>Button11</value>
@@ -826,13 +826,13 @@
     <value>5, 145</value>
   </data>
   <data name="Button9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button9.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
   <data name="Button9.Text" xml:space="preserve">
-    <value>凹路面</value>
+    <value>Sink road</value>
   </data>
   <data name="&gt;&gt;Button9.Name" xml:space="preserve">
     <value>Button9</value>
@@ -859,13 +859,13 @@
     <value>5, 117</value>
   </data>
   <data name="Button8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button8.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
   <data name="Button8.Text" xml:space="preserve">
-    <value>平凹转换</value>
+    <value>Normal-sink edge</value>
   </data>
   <data name="&gt;&gt;Button8.Name" xml:space="preserve">
     <value>Button8</value>
@@ -892,7 +892,7 @@
     <value>5, 89</value>
   </data>
   <data name="Button7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button7.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -925,7 +925,7 @@
     <value>5, 61</value>
   </data>
   <data name="Button6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button6.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -958,7 +958,7 @@
     <value>5, 33</value>
   </data>
   <data name="Button5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button5.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -991,7 +991,7 @@
     <value>5, 5</value>
   </data>
   <data name="Button4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button4.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -1018,7 +1018,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 503</value>
+    <value>176, 503</value>
   </data>
   <data name="TabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1051,7 +1051,7 @@
     <value>6, 174</value>
   </data>
   <data name="Button23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button23.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -1084,13 +1084,13 @@
     <value>5, 146</value>
   </data>
   <data name="Button20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button20.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
   </data>
   <data name="Button20.Text" xml:space="preserve">
-    <value>凹路内测拐角</value>
+    <value>Sink inner corner</value>
   </data>
   <data name="&gt;&gt;Button20.Name" xml:space="preserve">
     <value>Button20</value>
@@ -1117,13 +1117,13 @@
     <value>5, 118</value>
   </data>
   <data name="Button21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button21.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
   <data name="Button21.Text" xml:space="preserve">
-    <value>凹路单侧</value>
+    <value>Sink oneside</value>
   </data>
   <data name="&gt;&gt;Button21.Name" xml:space="preserve">
     <value>Button21</value>
@@ -1150,13 +1150,13 @@
     <value>5, 90</value>
   </data>
   <data name="Button22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button22.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
   <data name="Button22.Text" xml:space="preserve">
-    <value>凹路外侧拐角</value>
+    <value>Sink outter corner</value>
   </data>
   <data name="&gt;&gt;Button22.Name" xml:space="preserve">
     <value>Button22</value>
@@ -1183,13 +1183,13 @@
     <value>5, 62</value>
   </data>
   <data name="Button17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button17.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
   <data name="Button17.Text" xml:space="preserve">
-    <value>平路内测拐角</value>
+    <value>Normal inner corner</value>
   </data>
   <data name="&gt;&gt;Button17.Name" xml:space="preserve">
     <value>Button17</value>
@@ -1216,13 +1216,13 @@
     <value>5, 34</value>
   </data>
   <data name="Button18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button18.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
   <data name="Button18.Text" xml:space="preserve">
-    <value>平路单侧</value>
+    <value>Normel oneside</value>
   </data>
   <data name="&gt;&gt;Button18.Name" xml:space="preserve">
     <value>Button18</value>
@@ -1249,13 +1249,13 @@
     <value>5, 6</value>
   </data>
   <data name="Button19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="Button19.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
   </data>
   <data name="Button19.Text" xml:space="preserve">
-    <value>平路外侧拐角</value>
+    <value>Normal outter corner</value>
   </data>
   <data name="&gt;&gt;Button19.Name" xml:space="preserve">
     <value>Button19</value>
@@ -1276,7 +1276,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPage4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 503</value>
+    <value>176, 503</value>
   </data>
   <data name="TabPage4.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1300,7 +1300,7 @@
     <value>6, 58</value>
   </data>
   <data name="TabControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 529</value>
+    <value>184, 529</value>
   </data>
   <data name="TabControl2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1327,7 +1327,7 @@
     <value>15, 30</value>
   </data>
   <data name="Button10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>171, 22</value>
   </data>
   <data name="Button10.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -1591,10 +1591,10 @@
     <value>0</value>
   </data>
   <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 32</value>
+    <value>192, 32</value>
   </data>
   <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>629, 551</value>
+    <value>599, 551</value>
   </data>
   <data name="Panel1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1624,7 +1624,7 @@
     <value>993, 612</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Ballance Map Editor - Noname</value>
+    <value>Ballance Map Editor - Untitled</value>
   </data>
   <data name="&gt;&gt;DataGridViewImageColumn1.Name" xml:space="preserve">
     <value>DataGridViewImageColumn1</value>

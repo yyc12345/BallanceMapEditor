@@ -53,7 +53,7 @@ Partial Class Form4
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(85, 25)
         Me.Button3.TabIndex = 13
-        Me.Button3.Text = "删除"
+        Me.Button3.Text = "Delete"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -66,7 +66,7 @@ Partial Class Form4
         Me.GroupBox1.Size = New System.Drawing.Size(192, 92)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "已有的标记"
+        Me.GroupBox1.Text = "Available tags"
         '
         'Button2
         '
@@ -74,7 +74,7 @@ Partial Class Form4
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(85, 27)
         Me.Button2.TabIndex = 15
-        Me.Button2.Text = "重置"
+        Me.Button2.Text = "Reset"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
@@ -83,7 +83,7 @@ Partial Class Form4
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(85, 27)
         Me.Button1.TabIndex = 14
-        Me.Button1.Text = "添加"
+        Me.Button1.Text = "Add"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Form4
@@ -100,7 +100,7 @@ Partial Class Form4
         Me.Name = "Form4"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "标记编辑"
+        Me.Text = "Tags editor"
         Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 

@@ -174,7 +174,7 @@ Public Class frmMain
 #Region "LayerControl"
     Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
         If ObjectOnLoad = False Then
-            ToolStripStatusLabel1.Text = "正在进行层切换... 目标层:" & nowMap.LayerColl(ComboBox3.SelectedIndex).Name
+            ToolStripStatusLabel1.Text = "Changing layer... Target layer:" & nowMap.LayerColl(ComboBox3.SelectedIndex).Name
             Application.DoEvents()
             For Each l In nowMap.LayerColl
                 l.Inactive()
@@ -185,8 +185,8 @@ Public Class frmMain
             nowSelect = 0
 
             RefreshCombobox()
-            ToolStripStatusLabel1.Text = "就绪"
-            ToolStripStatusLabel3.Text = "当前层:" & nowMap.LayerColl(nowLayerID).Name
+            ToolStripStatusLabel1.Text = "Ready"
+            ToolStripStatusLabel3.Text = "Current layer:" & nowMap.LayerColl(nowLayerID).Name
         End If
     End Sub
     Private Sub PropertyGrid3_PropertyValueChanged(sender As Object, e As PropertyValueChangedEventArgs) Handles PropertyGrid3.PropertyValueChanged
@@ -216,7 +216,7 @@ Public Class frmMain
             Next
             ComboBox3.SelectedIndex = 0
         Else
-            MsgBox("不能删除这一层!", vbOKOnly, "提示")
+            MsgBox("Couldn't remove this layer!", vbOKOnly, "Notice")
         End If
     End Sub
 #End Region
@@ -225,12 +225,12 @@ Public Class frmMain
     Private Sub SetNowBlock(ByVal nowType As BlockType, ByVal SetText As String, ByVal nowSize As BlockSize)
         nowBlock = New Block(nowSize, nowType, Val(ComboBox2.Text), New System.Drawing.Point(0, 0), _RenderTarget)
         nowMouse = False
-        ToolStripStatusLabel1.Text = "当前选择:" & SetText
+        ToolStripStatusLabel1.Text = "Current selection:" & SetText
     End Sub
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
         nowMouse = True
         nowBlock = New Block
-        ToolStripStatusLabel1.Text = "就绪"
+        ToolStripStatusLabel1.Text = "Ready"
     End Sub
 
     Private Sub Button5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
@@ -338,7 +338,7 @@ Public Class frmMain
         ComboBox3.Items.Add(nowMap.LayerColl(0).Name)
         ComboBox3.SelectedIndex = 0
         ToolStripStatusLabel1.Text = "Ready"
-        Me.Text = "Ballance Map Editor - Noname"
+        Me.Text = "Ballance Map Editor - Untitled"
     End Sub
 
     Private Sub 打开ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles 打开ToolStripMenuItem.Click
@@ -431,7 +431,7 @@ err:
     End Sub
     Private Sub 另存为ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles 另存为ToolStripMenuItem.Click
         SaveFileDialog1.Filter = "Ballance Map File|*.bme"
-        SaveFileDialog1.FileName = "Noname"
+        SaveFileDialog1.FileName = "Untitled"
         SaveFileDialog1.FileName = OpenFileDialog1.FileName
         If SaveFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
             nowMap.SaveFile(SaveFileDialog1.FileName)
@@ -452,7 +452,12 @@ err:
         'End If
     End Sub
     Private Sub BMMaker的bmpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BMMaker的bmpToolStripMenuItem.Click
-        Dim test As New Importer.FromBMMaker(Application.StartupPath & "\\Test.bmp")
+        Dim file As String = Application.StartupPath & "\\Test.bmp"
+        If Not (System.IO.File.Exists(file)) Then
+            MsgBox("Couldn't find Test.bmp in app's startup path. Please make sure this file is existed.", MsgBoxStyle.Exclamation)
+            Return
+        End If
+        Dim test As New Importer.FromBMMaker(file)
         For Each s In test.BlockList
             nowMap.LayerColl(nowLayerID).BlockColl.Add(s)
         Next

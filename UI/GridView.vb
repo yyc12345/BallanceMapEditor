@@ -4,9 +4,9 @@ Imports SharpDX
 Namespace UI
     Public Class GridView
         Public Pen As Pen = New Pen(Brushes.Black, 1)
-        <Category("外观")> <DescriptionAttribute("显示网格")>
+        <Category("Appearances")> <DescriptionAttribute("Show grid")>
         Public Property DrawGrid As Boolean = True
-        <Category("外观")> <DescriptionAttribute("网格颜色")>
+        <Category("Appearances")> <DescriptionAttribute("Grid color")>
         Public Property PenColor As System.Drawing.Color
             Get
                 Return Pen.Color
@@ -20,13 +20,13 @@ Namespace UI
         <BrowsableAttribute(False)>
         Public Property Grid As Size
 
-        <Category("属性")> <DescriptionAttribute("画布格数")>
+        <Category("Property")> <DescriptionAttribute("Canvas size")>
         Public Property CanvasCount As Size
 
-        <Category("外观")> <DescriptionAttribute("绘制网格编号")>
+        <Category("Appearances")> <DescriptionAttribute("Draw grid index")>
         Public Property DrawGridNumber As Boolean = True
-        <Category("外观")> <DescriptionAttribute("网格编号字体")>
-        Public Property GridNumberFont As Font = New Font(New FontFamily("宋体"), 12, FontStyle.Regular)
+        <Category("Appearances")> <DescriptionAttribute("Grid index font")>
+        Public Property GridNumberFont As Font = New Font(New FontFamily("Arial"), 12, FontStyle.Regular)
 
         Public Sub New(ByVal co As System.Drawing.Color, ByVal drs As Size, ByVal canv As Size, ByVal gn As Boolean)
             Pen = New Pen(co, 1)
