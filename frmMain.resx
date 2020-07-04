@@ -1405,19 +1405,19 @@
     <value>Ctrl+N</value>
   </data>
   <data name="新建ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="新建ToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;New</value>
   </data>
   <data name="ToolStripComboBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="打开ToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+O</value>
   </data>
   <data name="打开ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="打开ToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Open</value>
@@ -1426,19 +1426,19 @@
     <value>Ctrl+S</value>
   </data>
   <data name="保存ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="保存ToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Save</value>
   </data>
   <data name="另存为ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="另存为ToolStripMenuItem.Text" xml:space="preserve">
     <value>Save &amp;as</value>
   </data>
   <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="BMMaker的bmpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 22</value>
@@ -1447,7 +1447,7 @@
     <value>BMMaker bmp</value>
   </data>
   <data name="导入IToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="导入IToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Import</value>
@@ -1462,7 +1462,7 @@
     <value>194, 22</value>
   </data>
   <data name="编译为ms文件ToolStripMenuItem.Text" xml:space="preserve">
-    <value>3ds Max .ms</value>
+    <value>Script (.ms .py)</value>
   </data>
   <data name="关卡预览图ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 22</value>
@@ -1471,19 +1471,19 @@
     <value>Level preview image</value>
   </data>
   <data name="ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ToolStripMenuItem2.Text" xml:space="preserve">
     <value>&amp;Export</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="退出ToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+F4</value>
   </data>
   <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
     <value>E&amp;xit</value>

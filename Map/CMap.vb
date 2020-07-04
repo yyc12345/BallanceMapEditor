@@ -3,6 +3,7 @@ Imports MapEditor.Item.Game
 Imports MapEditor.Item
 Imports System.IO
 Imports SharpDX
+Imports System.Text
 
 
 Namespace Map
@@ -178,7 +179,7 @@ Start:
                 If Res = Map.Updater.Updater_1to2.UpdateResult.Successful Then
                     Result = OpenResult.Updated
                 End If
-                GoTo start
+                GoTo Start
             End If
             Exit Sub
 err:
@@ -205,62 +206,88 @@ err:
 
 #Region "Bulid"
 #Region "CommandMaker"
-        Private Function ReturnPosition(ByVal Point As PointF, Height As Double) As String
+        Private Function ReturnPosition(ByVal Point As PointF, Height As Double, IsBlender As Boolean) As String
+            If IsBlender Then
+                Return "(" & Point.X & "," & Point.Y & "," & Height & ")"
+            Else
+                Return "pos:[" & Point.X & "," & Point.Y & "," & Height & "]"
+            End If
+        End Function
+        Private Function ConvertToCommand_FullBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double, IsBlender As Boolean) As String
+            If IsBlender Then
+                Return "helper('" & Block.Text & "_" & Block.Rotate & "'," & ReturnPosition(New PointF(((Block.Position.Y - 1) / 8 + 1.25), ((Block.Position.X - 1) / 8) + 1.25), Height, IsBlender) & ",'done" & Num & "')"
+            Else
+                Return "copy $" & Block.Text & "_" & Block.Rotate & " " & ReturnPosition(New PointF(((Block.Position.Y - 1) / 8 + 1.25), ((Block.Position.X - 1) / 8) + 1.25), Height, IsBlender) & " name:""done" & Num & """"
+            End If
+        End Function
+        Private Function ConvertToCommand_BigBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double, IsBlender As Boolean) As String
             Dim waitToReturn As String = ""
-            waitToReturn += "pos:[" & Point.X & "," & Point.Y & "," & Height & "]"
-            Return (waitToReturn)
-        End Function
-        Private Function ConvertToCommand_FullBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double) As String
-            Dim waitToReturn As String = ""
-            waitToReturn = "copy $" & Block.Text & "_" & Block.Rotate & " " & ReturnPosition(New PointF(((Block.Position.Y - 1) / 8 + 1.25), ((Block.Position.X - 1) / 8) + 1.25), Height) & " name:""done" & Num & """"
+            If IsBlender Then
+                waitToReturn += "helper('" & Block.Text & "_1_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'done" & Num & "_1')" & Environment.NewLine
+                waitToReturn += "helper('" & Block.Text & "_2_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'done" & Num & "_2')" & Environment.NewLine
+                waitToReturn += "helper('" & Block.Text & "_3_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & ",'done" & Num & "_3')" & Environment.NewLine
+                waitToReturn += "helper('" & Block.Text & "_4_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & ",'done" & Num & "_4')"
+            Else
+                waitToReturn += "copy $" & Block.Text & "_1_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""done" & Num & "_1""" & Environment.NewLine
+                waitToReturn += "copy $" & Block.Text & "_2_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""done" & Num & "_2""" & Environment.NewLine
+                waitToReturn += "copy $" & Block.Text & "_3_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & " name:""done" & Num & "_3""" & Environment.NewLine
+                waitToReturn += "copy $" & Block.Text & "_4_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & " name:""done" & Num & "_4"""
+            End If
             Return waitToReturn
         End Function
-        Private Function ConvertToCommand_BigBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double) As String()
-            Dim waitToReturn(5) As String
-            waitToReturn(0) = "copy $" & Block.Text & "_1_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height) & " name:""done" & Num & "_1"""
-            waitToReturn(1) = "copy $" & Block.Text & "_2_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8), Height) & " name:""done" & Num & "_2"""
-            waitToReturn(2) = "copy $" & Block.Text & "_3_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8 + 2.5), Height) & " name:""done" & Num & "_3"""
-            waitToReturn(3) = "copy $" & Block.Text & "_4_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8 + 2.5), Height) & " name:""done" & Num & "_4"""
-            Return waitToReturn
-        End Function
-        Private Function ConvertToCommand_SmallBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double) As String()
-            Dim waitToReturn(2) As String
-            waitToReturn(0) = "copy $" & Block.Text & "_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height) & " name:""done" & Num & """"
-            Return waitToReturn
+        Private Function ConvertToCommand_SmallBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double, IsBlender As Boolean) As String
+            If IsBlender Then
+                Return "helper('" & Block.Text & "_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'done" & Num & "')"
+            Else
+                Return "copy $" & Block.Text & "_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""done" & Num & """"
+            End If
         End Function
 #End Region
+
+
         Public Sub Build()
             Build(Title)
         End Sub
         Public Sub Build(ByVal FileName As String)
             Dim i As Integer
-            Dim temp As String()
-            Dim strFilePath As String = FileName & ".ms"
-            Dim sw As StreamWriter = New StreamWriter(strFilePath, False) 'true是指以追加的方式打开指定文件
+
+            Dim msFilePath As String = FileName & ".ms"
+            Dim pyFilePath As String = FileName & ".py"
+            Dim msfs As StreamWriter = New StreamWriter(msFilePath, False, Encoding.UTF8) 'true是指以追加的方式打开指定文件
+            Dim pyfs As StreamWriter = New StreamWriter(pyFilePath, False, Encoding.UTF8)
+
+            ' pre-write for py script
+            pyfs.WriteLine("import bpy")
+            pyfs.WriteLine("def helper(origin,loc,current):")
+            pyfs.WriteLine("    bpy.ops.object.select_all(action='DESELECT')")
+            pyfs.WriteLine("    bpy.context.scene.objects[origin].select_set(True)")
+            pyfs.WriteLine("    bpy.ops.object.duplicate()")
+            pyfs.WriteLine("    bpy.context.selected_objects[0].location = loc")
+            pyfs.WriteLine("    bpy.context.selected_objects[0].name= current")
+            pyfs.WriteLine("")
+
+            ' write real code
             For j = 0 To LayerColl.Count - 1
                 For i = 0 To LayerColl(j).BlockColl.Count - 1
                     If LayerColl(j).BlockColl(i).Size = BlockSize.BigBlock Then
                         If (LayerColl(j).BlockColl(i).Type <> BlockType.NormalChange_Su2Fl) And (LayerColl(j).BlockColl(i).Type <> BlockType.WoodTrafo) And (LayerColl(j).BlockColl(i).Type <> BlockType.PaperTrafo) And (LayerColl(j).BlockColl(i).Type <> BlockType.StoneTrafo) Then
-                            temp = ConvertToCommand_BigBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height)
-                            For Each s In temp
-                                sw.WriteLine(s)
-                            Next
+                            msfs.WriteLine(ConvertToCommand_BigBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height, False))
+                            pyfs.WriteLine(ConvertToCommand_BigBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height, True))
                         Else
-                            Dim t2 As String = ""
-                            t2 = ConvertToCommand_FullBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height)
-                            sw.WriteLine(t2)
+                            msfs.WriteLine(ConvertToCommand_FullBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height, False))
+                            pyfs.WriteLine(ConvertToCommand_FullBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height, True))
                         End If
                     Else
-                        temp = ConvertToCommand_SmallBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height)
-                        For Each s In temp
-                            sw.WriteLine(s)
-                        Next
+                        msfs.WriteLine(ConvertToCommand_SmallBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height, False))
+                        pyfs.WriteLine(ConvertToCommand_SmallBlock(i, LayerColl(j).BlockColl(i), LayerColl(j).Height, True))
                     End If
                 Next
             Next
-            sw.Flush()
-            sw.Close()
-            sw = Nothing
+
+
+
+            msfs.Close()
+            pyfs.Close()
             MsgBox("File has been generated in" & FileName & ".ms. Please use Maker.mx to load script.", , "Notice")
         End Sub
 #End Region
