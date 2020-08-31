@@ -215,31 +215,31 @@ err:
         End Function
         Private Function ConvertToCommand_FullBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double, IsBlender As Boolean) As String
             If IsBlender Then
-                Return "helper('" & Block.Text & "_" & Block.Rotate & "'," & ReturnPosition(New PointF(((Block.Position.Y - 1) / 8 + 1.25), ((Block.Position.X - 1) / 8) + 1.25), Height, IsBlender) & ",'done" & Num & "')"
+                Return "helper('" & Block.Text & "_" & Block.Rotate & "'," & ReturnPosition(New PointF(((Block.Position.Y - 1) / 8 + 1.25), ((Block.Position.X - 1) / 8) + 1.25), Height, IsBlender) & ",'A_Floor_done" & Num & "')"
             Else
-                Return "copy $" & Block.Text & "_" & Block.Rotate & " " & ReturnPosition(New PointF(((Block.Position.Y - 1) / 8 + 1.25), ((Block.Position.X - 1) / 8) + 1.25), Height, IsBlender) & " name:""done" & Num & """"
+                Return "copy $" & Block.Text & "_" & Block.Rotate & " " & ReturnPosition(New PointF(((Block.Position.Y - 1) / 8 + 1.25), ((Block.Position.X - 1) / 8) + 1.25), Height, IsBlender) & " name:""A_Floor_done" & Num & """"
             End If
         End Function
         Private Function ConvertToCommand_BigBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double, IsBlender As Boolean) As String
             Dim waitToReturn As String = ""
             If IsBlender Then
-                waitToReturn += "helper('" & Block.Text & "_1_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'done" & Num & "_1')" & Environment.NewLine
-                waitToReturn += "helper('" & Block.Text & "_2_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'done" & Num & "_2')" & Environment.NewLine
-                waitToReturn += "helper('" & Block.Text & "_3_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & ",'done" & Num & "_3')" & Environment.NewLine
-                waitToReturn += "helper('" & Block.Text & "_4_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & ",'done" & Num & "_4')"
+                waitToReturn += "helper('" & Block.Text & "_1_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'A_Floor_done" & Num & "_1')" & Environment.NewLine
+                waitToReturn += "helper('" & Block.Text & "_2_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'A_Floor_done" & Num & "_2')" & Environment.NewLine
+                waitToReturn += "helper('" & Block.Text & "_3_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & ",'A_Floor_done" & Num & "_3')" & Environment.NewLine
+                waitToReturn += "helper('" & Block.Text & "_4_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & ",'A_Floor_done" & Num & "_4')"
             Else
-                waitToReturn += "copy $" & Block.Text & "_1_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""done" & Num & "_1""" & Environment.NewLine
-                waitToReturn += "copy $" & Block.Text & "_2_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""done" & Num & "_2""" & Environment.NewLine
-                waitToReturn += "copy $" & Block.Text & "_3_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & " name:""done" & Num & "_3""" & Environment.NewLine
-                waitToReturn += "copy $" & Block.Text & "_4_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & " name:""done" & Num & "_4"""
+                waitToReturn += "copy $" & Block.Text & "_1_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""A_Floor_done" & Num & "_1""" & Environment.NewLine
+                waitToReturn += "copy $" & Block.Text & "_2_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""A_Floor_done" & Num & "_2""" & Environment.NewLine
+                waitToReturn += "copy $" & Block.Text & "_3_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & " name:""A_Floor_done" & Num & "_3""" & Environment.NewLine
+                waitToReturn += "copy $" & Block.Text & "_4_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8 + 2.5, (Block.Position.X - 1) / 8 + 2.5), Height, IsBlender) & " name:""A_Floor_done" & Num & "_4"""
             End If
             Return waitToReturn
         End Function
         Private Function ConvertToCommand_SmallBlock(ByVal Num As Integer, ByVal Block As Block, ByVal Height As Double, IsBlender As Boolean) As String
             If IsBlender Then
-                Return "helper('" & Block.Text & "_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'done" & Num & "')"
+                Return "helper('" & Block.Text & "_" & Block.Rotate & "'," & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & ",'A_Floor_done" & Num & "')"
             Else
-                Return "copy $" & Block.Text & "_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""done" & Num & """"
+                Return "copy $" & Block.Text & "_" & Block.Rotate & " " & ReturnPosition(New PointF((Block.Position.Y - 1) / 8, (Block.Position.X - 1) / 8), Height, IsBlender) & " name:""A_Floor_done" & Num & """"
             End If
         End Function
 #End Region
@@ -288,7 +288,7 @@ err:
 
             msfs.Close()
             pyfs.Close()
-            MsgBox("File has been generated in" & FileName & ".ms. Please use Maker.mx to load script.", , "Notice")
+            MsgBox("File has been generated in " & FileName & ".ms and " & FileName & ".py. Please use 3ds Max or Blender to load script.", , "Notice")
         End Sub
 #End Region
 
